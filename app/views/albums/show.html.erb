@@ -27,6 +27,7 @@ Album: <br \>
 
 <% @photo_items.each do |photo_item| %>
 <li id="<%= photo_item.id %>">
+	<%= will_paginate @photo_items %>
 
 <span class="content"><%= image_tag photo_item.pic.url(:thumb) %></span>
 <span class="content"><%= photo_item.caption %></span>
