@@ -7,6 +7,21 @@
 <li><%= link_to "Home", root_url %></li>
 <li><%= link_to "Albums", albums_path %></li>
 <li><%= link_to "Help", '#' %></li>
+
+<li id="fat-menu" class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+Options <b class="caret"></b>
+</a>
+<ul class="dropdown-menu">
+<li><%= link_to "Create album", new_album_path %></li>
+<li><%= link_to "View albums", albums_path %></li>
+<li class="divider"></li>
+<li>
+<%= link_to "Upload photo", static_pages_new_path %>
+</li>
+</ul>
+</li>
+
 </ul>
 </nav>
 </div>

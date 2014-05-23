@@ -1,3 +1,4 @@
+<% provide(:title, 'New Album') %>
 <h3> Choose Album from the dropdown menu </h1>
 
 <%= form_for( @photo, :url => photos_path(path: "new"), :html => { :multipart => true } ) do |f| %>
