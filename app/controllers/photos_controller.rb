@@ -1,8 +1,12 @@
 class PhotosController < ApplicationController
 
 def create
-	@album = Album.find(params[:album_id])
-	@photo = @album.photos.build(photo_params)
+	if params[:path] == "new"
+		@album = Album.find(params[:photo][:album_id])
+	else
+		@album = Album.find(params[:album_id])
+	end
+	@photo = @album.photos.build(photo_params) 
 	if @photo.save
 		flash[:success] = "Photo uploaded successfully"
 		redirect_to @album
@@ -25,7 +29,7 @@ end
 private
 
 def photo_params
-	params.require(:photo).permit(:caption, :description)
+	params.require(:photo).permit(:caption, :description, :pic)
 end
 
 end

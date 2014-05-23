@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
   	@album = Album.new(album_params)
   	if @album.save
   		flash[:success] = "Album created successfully"
-  		redirect_to @album
+  		redirect_to album_path
   	else
   		render :new
   	end
@@ -41,7 +41,7 @@ class AlbumsController < ApplicationController
   end
 
   def index
-  	#@albums = []
+  	@album = Album.new
   	@albums = Album.all.paginate(page: params[:page], per_page: 4)
   end
 

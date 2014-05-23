@@ -1,4 +1,6 @@
-<%= form_for( @photo, :url => album_photos_path(album_id: @album.id), :html => { :multipart => true } ) do |f| %>
+<h3> Choose Album from the dropdown menu </h1>
+
+<%= form_for( @photo, :url => photos_path(path: "new"), :html => { :multipart => true } ) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
 <div class="field">
@@ -6,8 +8,11 @@
 	<%= f.text_field :caption %>
 	<%= f.label :description %>
 	<%= f.text_area :description, placeholder: "Type photo description..." %>
+	<%= collection_select(:photo, :album_id, Album.all, :id, :name, :prompt => true) %>
 	<%= f.label :pic, "Image" %>
 	<%= f.file_field :pic %>
 </div>
 	<%= f.submit "Upload photo", class: "btn btn-lg btn-primary" %>
 <% end %>
+
+	

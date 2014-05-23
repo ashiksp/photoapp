@@ -34,7 +34,7 @@ gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 
 #file upload feature
-gem "paperclip", "~> 2.3"
+gem "paperclip", "~> 4.1"
 
 group :production do
 	gem 'rails_12factor'
