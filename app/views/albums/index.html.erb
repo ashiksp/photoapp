@@ -1,0 +1,24 @@
+<% provide(:title, "Albums") %>
+
+<div class="row">
+<aside class="span4">
+<section>
+<h1>
+Listing <%= pluralize(@albums.count, "album") %> :
+</h1>
+</section>
+</aside>
+
+
+<div class="span8">
+<% if @albums.any? %>
+<h3>Albums (<%= @albums.count %>)</h3>
+<ol class="albums">
+<%= render @albums %>
+</ol>
+<%= will_paginate @albums %>
+<% end %>
+</div>
+</div>
+
+

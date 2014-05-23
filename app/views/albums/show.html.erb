@@ -1,0 +1,29 @@
+<% provide(:title, @album.name) %>
+
+<div class="row">
+<aside class="span4">
+<section>
+Album: <br \>
+<%= @album.name %>
+<br \>
+<%= @album.description %>
+<td><%= link_to 'Edit', edit_album_path(@album) %>
+
+<%= link_to 'Destroy', album_path(@album), 
+    method: :delete, data: {confirm: 'Are you sure?'} %>
+</section>
+
+<section>
+<%= link_to "Upload Photo", '#', class: "btn btn-lg btn-primary" %> <br \>
+</section>
+</aside>
+
+
+<div class="span8">
+<h3>Album <%= @album.name %>: Photos</h3>
+
+</div>
+
+</div>
+
+
