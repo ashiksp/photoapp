@@ -14,14 +14,34 @@ Album: <br \>
 </section>
 
 <section>
-<%= link_to "Upload Photo", '#', class: "btn btn-lg btn-primary" %> <br \>
+<%= render 'photos/photo_form' %> <br \>
 </section>
 </aside>
 
 
 <div class="span8">
 <h3>Album <%= @album.name %>: Photos</h3>
+<% if @photo_items.any? %>
+<ol class="albums">
 
+<% @photo_items.each do |photo_item| %>
+<li id="<%= photo_item.id %>">
+
+<span class="content"><%= photo_item.caption %></span>
+<span class="content"><%= photo_item.description %></span>
+<span class="timestamp">
+Uploaded <%= time_ago_in_words(photo_item.created_at) %> ago.
+</span>
+<%= link_to "delete", album_photo_path(album_id: photo_item.album.id, id: photo_item.id), method: :delete,
+data: { confirm: "You sure?" },
+title: photo_item.caption %>
+
+<% end %>
+
+</li>
+</ol>
+<%= will_paginate @photo_items %>
+<% end %>
 </div>
 
 </div>

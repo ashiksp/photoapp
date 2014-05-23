@@ -1,0 +1,11 @@
+<%= form_for( @photo, :url => album_photos_path(album_id: @album.id) ) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+
+<div class="field">
+	<%= f.label :caption, "Caption" %>
+	<%= f.text_field :caption %>
+	<%= f.label :description %>
+	<%= f.text_area :description, placeholder: "Type photo description..." %>
+</div>
+	<%= f.submit "Upload photo", class: "btn btn-lg btn-primary" %>
+<% end %>
