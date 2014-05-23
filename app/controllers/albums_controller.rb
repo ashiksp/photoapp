@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
   	@album = Album.new(album_params)
   	if @album.save
   		flash[:success] = "Album created successfully"
-  		redirect_to album_path
+  		redirect_to @album
   	else
   		render :new
   	end
