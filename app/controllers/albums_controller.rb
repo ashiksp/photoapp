@@ -16,6 +16,7 @@ class AlbumsController < ApplicationController
   def show
   	@album = Album.find(params[:id])
     @photo = @album.photos.build
+    @comment = Comment.new
     @photo_items = @album.photo_feed.paginate(page: params[:page], per_page: 3).order('created_at DESC')
   end
 
